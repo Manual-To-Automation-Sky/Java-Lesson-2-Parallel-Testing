@@ -18,10 +18,10 @@ public class LoginTest {
     
     public String url = "https://practicetestautomation.com/practice-test-login/";
     public String loggedInUrlSnippet = "logged-in-successfully";
-    public String username = "student";
-    public String password = "Password123";
-    public String wrongUsername = "wrong-student";
-    public String wrongPassword = "Password456";
+    public String username = System.getenv("TEST_LOGIN");
+    public String password = System.getenv("TEST_PASSWORD");
+    public String wrongUsername = System.getenv("INCORRECT_TEST_LOGIN");
+    public String wrongPassword = System.getenv("INCORRECT_TEST_PASSWORD");
     public String invalidUserMessage = "Your username is invalid!";
     public String invalidPasswordMessage = "Your password is invalid!";
 
@@ -47,6 +47,7 @@ public class LoginTest {
         submitButton.click();
 
         Assert.assertTrue(driver.getCurrentUrl().contains(loggedInUrlSnippet));
+
     }
 
     @Test
